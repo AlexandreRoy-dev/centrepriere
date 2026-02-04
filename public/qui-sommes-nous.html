@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Qui sommes-nous — Centre de prière de la miséricorde</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&family=Playfair+Display:wght@600;700&display=swap">
+    <style>
+        * { box-sizing: border-box; }
+        body { margin: 0; font-family: 'Source Sans 3', sans-serif; color: #292524; background: #fff; }
+        .font-heading { font-family: 'Playfair Display', serif; }
+
+        .page-nav {
+            padding: 1rem 1.5rem 1.25rem;
+            max-width: 80rem;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #e7e5e4;
+            background: #fff;
+        }
+        .page-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #292524;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .page-logo-icon {
+            width: 2.25rem;
+            height: 2.25rem;
+            border-radius: 50%;
+            background: rgba(245, 158, 11, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .page-logo-icon svg { width: 1.25rem; height: 1.25rem; color: #d97706; }
+        .page-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .page-links a {
+            color: #57534e;
+            font-size: 0.875rem;
+            font-weight: 500;
+            text-decoration: none;
+        }
+        .page-links a:hover { color: #b45309; }
+        @media (max-width: 1023px) {
+            .page-links { display: none; }
+        }
+
+        .page-hero {
+            background: linear-gradient(180deg, #fef3c7 0%, #fef9e8 50%, #fafaf9 100%);
+            padding: 4rem 1.5rem 4.5rem;
+            text-align: center;
+        }
+        .page-hero-inner {
+            max-width: 50rem;
+            margin: 0 auto;
+        }
+        .page-hero .back-link {
+            margin-bottom: 1.5rem;
+        }
+        .page-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            color: #292524;
+            margin: 0;
+            letter-spacing: -0.02em;
+        }
+
+        .page-main {
+            max-width: 50rem;
+            margin: 0 auto;
+            padding: 0 1.5rem 5rem;
+        }
+        .page-section {
+            padding: 3rem 0 2rem;
+            border-bottom: 1px solid #e7e5e4;
+        }
+        .page-section:last-of-type { border-bottom: 0; }
+        .page-section.alt { background: #fafaf9; margin: 0 -1.5rem; padding-left: 1.5rem; padding-right: 1.5rem; }
+        .page-section-inner { max-width: 50rem; margin: 0 auto; }
+        .page-main p {
+            color: #57534e;
+            line-height: 1.8;
+            margin: 0 0 1.25rem;
+            font-size: 1.0625rem;
+        }
+        .page-main h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.375rem;
+            font-weight: 700;
+            color: #292524;
+            margin: 0 0 1.25rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid rgba(180, 83, 9, 0.35);
+            display: inline-block;
+        }
+        .page-main h2:first-child { margin-top: 0; }
+        .page-main ul {
+            color: #57534e;
+            line-height: 1.75;
+            margin: 0 0 1.25rem;
+            padding-left: 1.5rem;
+        }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            color: #b45309;
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-decoration: none;
+        }
+        .back-link:hover { text-decoration: underline; }
+        .page-main a.content-link {
+            color: #b45309;
+            font-weight: 600;
+            text-decoration: none;
+        }
+        .page-main a.content-link:hover { text-decoration: underline; }
+        .link-card {
+            background: #fff;
+            border: 1px solid #e7e5e4;
+            border-radius: 0.75rem;
+            padding: 1.25rem 1.5rem;
+            margin: 1rem 0 1.5rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+        }
+        .page-main .link-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .page-main .link-list li {
+            margin-bottom: 0.5rem;
+        }
+        .page-main .link-list li:last-child { margin-bottom: 0; }
+        .page-main .link-list a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #b45309;
+            font-weight: 600;
+            text-decoration: none;
+        }
+        .page-main .link-list a:hover { text-decoration: underline; }
+        .page-main .link-list a::after {
+            content: "→";
+            font-size: 0.9em;
+        }
+        .pullquote {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            font-style: italic;
+            color: #57534e;
+            line-height: 1.6;
+            margin: 2rem 0;
+            padding: 1.5rem 1.5rem 1.5rem 1.75rem;
+            border-left: 4px solid #d97706;
+            background: #fffbeb;
+        }
+        .page-cta {
+            text-align: center;
+            padding: 2.5rem 1.5rem;
+            background: linear-gradient(180deg, #fafaf9 0%, #fef9e8 100%);
+            border-radius: 0.75rem;
+            margin-top: 2rem;
+        }
+        .page-cta p {
+            margin: 0 0 1rem;
+            font-size: 1.125rem;
+        }
+        .page-cta p:last-child { margin-bottom: 0; }
+        .page-cta .content-link { font-size: 1rem; }
+    </style>
+</head>
+<body>
+    <header class="page-nav">
+        <a href="index.html" class="page-logo">
+            <span class="page-logo-icon">
+                <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L2 7v10l10 5 10-5V7L12 2zm0 2.18l6.9 3.45L12 11.09 5.1 7.63 12 4.18zM4 8.82l7 3.5v7.36l-7-3.5V8.82zm9 10.86v-7.36l7-3.5v7.36l-7 3.5z"/></svg>
+            </span>
+            Centre de prière de la miséricorde
+        </a>
+        <ul class="page-links">
+            <li><a href="index.html#programmation">Programmation</a></li>
+            <li><a href="index.html#intention">Intention de prière</a></li>
+            <li><a href="index.html#don">Faire un don</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+            <li><a href="qui-sommes-nous.html">Qui sommes-nous?</a></li>
+        </ul>
+    </header>
+
+    <header class="page-hero">
+        <div class="page-hero-inner">
+            <a href="index.html" class="back-link">← Retour à l’accueil</a>
+            <h1 class="font-heading">Qui sommes-nous?</h1>
+        </div>
+    </header>
+
+    <main class="page-main">
+        <section class="page-section">
+            <div class="page-section-inner">
+                <p>Le Centre de prière de la Miséricorde est un regroupement de fidèles qui œuvre pour faire connaître l’amour miséricordieux du Sacré-Cœur de Jésus.</p>
+                <p>En 2011, le groupe de prière <strong>QuoVadis</strong>, fondé par Mme Hélène Brassard et M. Simon Couillard, voit le jour et offre des soirées de louange et d’adoration ainsi que des journées de ressourcement à Québec.</p>
+                <p>Dans l’année 2016, ils implantent à Québec la <strong>Communauté des Serviteurs du Christ vivant</strong>, dont la Maison mère est à Saint-Domingue en République dominicaine et dont le co-fondateur de cette communauté est le Père Émilien Tardif m.s.c., décédé le 8 juin 1999.</p>
+                <p>Après neuf années à œuvrer dans cette communauté, ils se sont désaffiliés pour mieux répondre à leur vocation première qui est d’évangéliser auprès de ceux qui ont perdu leur dignité afin qu’ils se sachent aimés de Dieu. Plusieurs collaborateurs se sont liés à cette mission en participant aux différents ministères tels que l’adoration, les retraites, les Agapèthérapies, les Séminaires de la Vie dans l’Esprit.</p>
+                <p>Le Père Émilien Tardif, natif de la Beauce à la municipalité de St-Zacharie, demeure au cœur de cette œuvre d’évangélisation. Étant situé sur sa terre natale et inspirés par le don de sa personne, il nous interpelle à proclamer, à qui veut l’entendre, que Jésus est vivant et qu’Il est vraiment présent dans la Sainte Eucharistie.</p>
+                <blockquote class="pullquote">« Jésus est vivant et Il est vraiment présent dans la Sainte Eucharistie. »</blockquote>
+            </div>
+        </section>
+
+        <section class="page-section alt">
+            <div class="page-section-inner">
+                <h2>Qui est le Père Émilien Tardif?</h2>
+                <div class="link-card">
+                    <ul class="link-list">
+                        <li><a href="https://fr.wikipedia.org/wiki/%C3%89milien_Tardif" target="_blank" rel="noopener noreferrer">Biographie — Wikipédia</a></li>
+                        <li><a href="https://www.cscv.ca/fr/pere-emilien-tardif" target="_blank" rel="noopener noreferrer">Biographie Père Émilien Tardif de la CSCV</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="page-section">
+            <div class="page-section-inner">
+                <h2>Du Centre Molé au Centre de prière de la Miséricorde</h2>
+                <p>Le 4 décembre 2021, le Centre de prière de la Miséricorde de Québec fait l’acquisition du <strong>Centre Molé</strong>.</p>
+                <p>Les portes se sont ouvertes dès janvier 2022 sous le nom de l’<strong>École d’évangélisation Père Émilien Tardif</strong>.</p>
+                <p>Le Père Émilien Tardif, natif de la Beauce, avait à cœur que tous les chrétiens soient évangélisés et transformés par le Christ. Nous sommes très heureux qu’il demeure un modèle au cœur de notre mission.</p>
+                <p>Le <strong>1er mai 2025</strong>, l’École d’évangélisation du Père Émilien Tardif change de nom pour le <strong>Centre de prière de la Miséricorde</strong>. Les responsables de l’implantation de la Communauté des Serviteurs du Christ vivant à Québec se désaffilient et prennent un tournant dans leur appel à l’évangélisation.</p>
+                <p>Ils fondent une nouvelle association de fidèles, <strong>Les Messagers de la Miséricorde</strong>, qui a pour mission de faire connaître l’amour miséricordieux par le Sacré-Cœur de Jésus, afin que tous sachent qu’ils sont aimés de Dieu et qu’ils puissent retrouver leur dignité d’enfant de Dieu.</p>
+            </div>
+        </section>
+
+        <section class="page-section alt">
+            <div class="page-section-inner">
+                <h2>Au Centre de prière de la Miséricorde</h2>
+                <p>On y retrouve plusieurs sessions pour former des évangélisateurs qui font l’expérience de ce à quoi ils sont appelés à témoigner.</p>
+                <p>Des <strong>Agapèthérapies</strong> afin d’aider les personnes à reprendre la route avec Jésus, les <strong>Séminaires de la Vie dans l’Esprit</strong> et plusieurs autres ressourcements pour répondre aux besoins de chacun à grandir dans sa foi.</p>
+                <div class="page-cta">
+                    <p>C’est avec une grande joie que nous serons heureux de vous y accueillir.</p>
+                    <p>Pour toute question ou pour nous rejoindre, consultez notre page <a href="index.html#contact" class="content-link">Contact</a>.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
