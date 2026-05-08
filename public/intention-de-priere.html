@@ -195,15 +195,11 @@
         }
         .footer-brand:hover { color: #fff; opacity: 0.9; }
         .footer-brand-icon {
-            width: 2rem;
-            height: 2rem;
-            border-radius: 50%;
-            background: rgba(144, 0, 0, 0.3);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            width: auto;
+            height: 2.25rem;
+            display: block;
+            object-fit: contain;
         }
-        .footer-brand-icon svg { width: 1rem; height: 1rem; color: #cc3333; }
         .footer-links {
             display: flex;
             flex-wrap: wrap;
@@ -285,9 +281,7 @@
         <div class="footer-inner">
             <div class="footer-top">
                 <a href="../index.html" class="footer-brand">
-                    <span class="footer-brand-icon">
-                        <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L2 7v10l10 5 10-5V7L12 2zm0 2.18l6.9 3.45L12 11.09 5.1 7.63 12 4.18zM4 8.82l7 3.5v7.36l-7-3.5V8.82zm9 10.86v-7.36l7-3.5v7.36l-7 3.5z"/></svg>
-                    </span>
+                    <img src="images/logo.png" alt="" class="footer-brand-icon">
                     Centre de prière de la miséricorde
                 </a>
                 <ul class="footer-links">

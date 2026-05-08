@@ -414,6 +414,169 @@
         .prog-post-dates li {
             margin-bottom: 0.2rem;
         }
+        .prog-subtitle {
+            margin: 2.25rem 0 1.25rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #292524;
+        }
+        .prog-post--blank {
+            background: #fff;
+            border-style: dashed;
+            box-shadow: none;
+        }
+        .prog-post--blank:hover {
+            box-shadow: none;
+            border-color: #e7e5e4;
+        }
+        .prog-post--blank .prog-post-image {
+            background: linear-gradient(135deg, #fafaf9, #f5f5f4);
+        }
+        .prog-post--blank .prog-post-excerpt {
+            color: #a8a29e;
+        }
+        .prog-post--blank .prog-post-link {
+            display: none;
+        }
+        .prog-post--blank {
+            pointer-events: none;
+        }
+
+        .agape-carousel {
+            position: relative;
+            border-radius: 1rem;
+            overflow: hidden;
+            border: 1px solid #e7e5e4;
+            background: #fff;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+        }
+        .agape-slides {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16/9;
+            min-height: 320px;
+        }
+        .agape-slide {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 0.6s ease;
+        }
+        .agape-slide.active {
+            opacity: 1;
+            z-index: 1;
+        }
+        .agape-slide::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, rgba(28, 25, 23, 0.78), rgba(28, 25, 23, 0.15));
+        }
+        .agape-slide-content {
+            position: absolute;
+            left: 1.25rem;
+            right: 1.25rem;
+            bottom: 1.25rem;
+            z-index: 2;
+            max-width: 34rem;
+            color: #fff;
+        }
+        @media (min-width: 768px) {
+            .agape-slide-content {
+                left: 2rem;
+                bottom: 2rem;
+            }
+        }
+        .agape-slide-date {
+            margin: 0 0 0.5rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.9);
+        }
+        .agape-slide-title {
+            margin: 0 0 0.75rem;
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        .agape-slide-sub {
+            margin: 0 0 1rem;
+            color: rgba(255,255,255,0.88);
+            line-height: 1.6;
+            font-size: 1rem;
+        }
+        .agape-cta {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem 1.25rem;
+            border-radius: 0.6rem;
+            background: #900000;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.875rem;
+            border: 1px solid #900000;
+        }
+        .agape-cta:hover { background: #6b0000; border-color: #6b0000; color: #fff; }
+        .agape-cta--disabled {
+            background: rgba(255,255,255,0.14);
+            border-color: rgba(255,255,255,0.22);
+            color: rgba(255,255,255,0.85);
+            cursor: default;
+            pointer-events: none;
+        }
+        .agape-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 3;
+            width: 2.75rem;
+            height: 2.75rem;
+            border-radius: 999px;
+            border: 1px solid rgba(255,255,255,0.35);
+            background: rgba(28, 25, 23, 0.35);
+            color: #fff;
+            cursor: pointer;
+            display: grid;
+            place-items: center;
+            font-size: 1.25rem;
+            line-height: 1;
+        }
+        .agape-nav:hover { background: rgba(28, 25, 23, 0.55); }
+        .agape-nav.prev { left: 0.75rem; }
+        .agape-nav.next { right: 0.75rem; }
+        .agape-dots {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 0.75rem;
+            z-index: 3;
+            display: flex;
+            gap: 0.6rem;
+        }
+        .agape-dot {
+            width: 0.6rem;
+            height: 0.6rem;
+            border-radius: 50%;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+            background: rgba(255,255,255,0.45);
+        }
+        .agape-dot.active { background: #fff; }
+        .agape-caption {
+            margin: 1rem 0 0;
+            color: #57534e;
+            line-height: 1.7;
+            max-width: 56rem;
+        }
 
         .site-footer {
             background: #1c1917;
@@ -446,15 +609,11 @@
         }
         .footer-brand:hover { color: #fff; opacity: 0.9; }
         .footer-brand-icon {
-            width: 2rem;
-            height: 2rem;
-            border-radius: 50%;
-            background: rgba(144, 0, 0, 0.3);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            width: auto;
+            height: 2.25rem;
+            display: block;
+            object-fit: contain;
         }
-        .footer-brand-icon svg { width: 1rem; height: 1rem; color: #cc3333; }
         .footer-links {
             display: flex;
             flex-wrap: wrap;
@@ -511,9 +670,9 @@
                 <img src="./public/images/logo.png" alt="">
                 <h1 class="font-heading">Centre de prière de la Miséricorde</h1>
                 
-                <p class="hero-hero-p">Chaque personne est unique et aimée. L'Agapèthérapie permet à Jésus de guérir ce qui nous empêche d'avancer et nous rend libre d'être ce que nous sommes vraiment.</p>
+                <p class="hero-hero-p">Chaque personne est unique et aimée. </p>
                 <div class="hero-btns">
-                    <a href="#agapetherapie" class="hero-btn hero-btn-primary">S'inscrire à l'Agapèthérapie</a>
+                    <a href="#about" class="hero-btn hero-btn-primary">En apprendre plus</a>
                     <a href="#programmation" class="hero-btn hero-btn-outline">Voir la programmation</a>
                 </div>
             </div>
@@ -544,11 +703,13 @@
         <div class="prog-wrap">
             <div class="prog-header">
                 <p class="prog-label">Programmation 2025-2026</p>
-                <h2 class="prog-title font-heading">Activités et événements</h2>
+                <h2 class="prog-title font-heading">Programmation</h2>
             </div>
+
+            <h3 class="prog-subtitle" id="programmation-activites">Activités</h3>
             <div class="prog-grid">
                 <article class="prog-post">
-                    <div class="prog-post-image" style="background-image: url('public/images/intention%20de%20pri%C3%A8re.jpg');"></div>
+                    <div class="prog-post-image" style="background-image: url('public/images/991A9293.jpg');"></div>
                     <div class="prog-post-body">
                         <p class="prog-post-date">Saison 2025-2026 - soirées régulières</p>
                         <h3 class="prog-post-title">Soirées de prière charismatique (doublon)</h3>
@@ -566,24 +727,6 @@
                     </div>
                 </article>
                 <article class="prog-post">
-                    <div class="prog-post-image" style="background-image: url('public/images/collaborateur.jpg');"></div>
-                    <div class="prog-post-body">
-                        <p class="prog-post-date">Sur rendez-vous - 2025-2026</p>
-                        <h3 class="prog-post-title">Ministère d'écoute et de prière (service)</h3>
-                        <p class="prog-post-excerpt">Accompagnement personnalisé : être écouté et porté dans la prière par une équipe formée à l'écoute et à l'intercession. Que vous traversiez une épreuve ou souhaitiez simplement déposer une intention, vous serez reçu dans la confidentialité et la bienveillance.</p>
-                        <a href="public/contact.html" class="prog-post-link">En savoir plus</a>
-                    </div>
-                </article>
-                <article class="prog-post">
-                    <div class="prog-post-image" style="background-image: url('public/images/20200611_100434.jpg');"></div>
-                    <div class="prog-post-body">
-                        <p class="prog-post-date">Retraites 2025-2026</p>
-                        <h3 class="prog-post-title">Agapèthérapie</h3>
-                        <p class="prog-post-excerpt">Retraites pour permettre à Jésus de guérir les blessures du cœur et retrouver la joie d'être aimé. Un accompagnateur vous guide sur ce chemin de liberté ; les sessions se déroulent sur plusieurs jours en résidentiel. Voir les dates et places disponibles ci-dessous.</p>
-                        <a href="#agapetherapie" class="prog-post-link">Voir les dates et s'inscrire</a>
-                    </div>
-                </article>
-                <article class="prog-post">
                     <div class="prog-post-image" style="background-image: url('public/images/CA%20CM%20decembre%202025.jpg');"></div>
                     <div class="prog-post-body">
                         <p class="prog-post-date">Sessions 2025-2026</p>
@@ -593,12 +736,92 @@
                     </div>
                 </article>
                 <article class="prog-post">
-                    <div class="prog-post-image" style="background-image: url('public/images/991A9293.jpg');"></div>
+                    <div class="prog-post-image" style="background-image: url('public/images/intention%20de%20pri%C3%A8re.jpg');"></div>
                     <div class="prog-post-body">
                         <p class="prog-post-date">Sur inscription - 2025-2026</p>
                         <h3 class="prog-post-title">Intercession prophétique</h3>
                         <p class="prog-post-excerpt">Prière d'intercession et prophétique pour les personnes et les intentions confiées au Centre. Ce ministère prie avec vous et pour vos intentions dans un esprit d'écoute de l'Esprit Saint. Inscription requise pour participer aux sessions.</p>
                         <a href="https://forms.gle/fTmJAt3RHYwHCBmN7" target="_blank" rel="noopener" class="prog-post-link">S'inscrire</a>
+                    </div>
+                </article>
+                <article class="prog-post prog-post--blank" aria-hidden="true">
+                    <div class="prog-post-image"></div>
+                    <div class="prog-post-body">
+                        <p class="prog-post-date">À venir</p>
+                        <h3 class="prog-post-title">Bientôt</h3>
+                        <p class="prog-post-excerpt">Nouvelle activité — détails à confirmer.</p>
+                        <a href="javascript:void(0)" class="prog-post-link" tabindex="-1">En savoir plus</a>
+                    </div>
+                </article>
+                <article class="prog-post prog-post--blank" aria-hidden="true">
+                    <div class="prog-post-image"></div>
+                    <div class="prog-post-body">
+                        <p class="prog-post-date">À venir</p>
+                        <h3 class="prog-post-title">Bientôt</h3>
+                        <p class="prog-post-excerpt">Nouvelle activité — détails à confirmer.</p>
+                        <a href="javascript:void(0)" class="prog-post-link" tabindex="-1">En savoir plus</a>
+                    </div>
+                </article>
+            </div>
+
+            <h3 class="prog-subtitle" id="programmation-services">Services</h3>
+            <div class="prog-grid">
+                <article class="prog-post">
+                    <div class="prog-post-image" style="background-image: url('public/images/collaborateur.jpg');"></div>
+                    <div class="prog-post-body">
+                        <p class="prog-post-date">Sur rendez-vous - 2025-2026</p>
+                        <h3 class="prog-post-title">Ministère d'écoute et de prière</h3>
+                        <p class="prog-post-excerpt">Accompagnement personnalisé : être écouté et porté dans la prière par une équipe formée à l'écoute et à l'intercession. Que vous traversiez une épreuve ou souhaitiez simplement déposer une intention, vous serez reçu dans la confidentialité et la bienveillance.</p>
+                        <a href="public/contact.html" class="prog-post-link">En savoir plus</a>
+                    </div>
+                </article>
+                <article class="prog-post prog-post--blank" aria-hidden="true">
+                    <div class="prog-post-image"></div>
+                    <div class="prog-post-body">
+                        <p class="prog-post-date">À venir</p>
+                        <h3 class="prog-post-title">Bientôt</h3>
+                        <p class="prog-post-excerpt">Nouveau service — détails à confirmer.</p>
+                        <a href="javascript:void(0)" class="prog-post-link" tabindex="-1">En savoir plus</a>
+                    </div>
+                </article>
+                <article class="prog-post prog-post--blank" aria-hidden="true">
+                    <div class="prog-post-image"></div>
+                    <div class="prog-post-body">
+                        <p class="prog-post-date">À venir</p>
+                        <h3 class="prog-post-title">Bientôt</h3>
+                        <p class="prog-post-excerpt">Nouveau service — détails à confirmer.</p>
+                        <a href="javascript:void(0)" class="prog-post-link" tabindex="-1">En savoir plus</a>
+                    </div>
+                </article>
+            </div>
+
+            <h3 class="prog-subtitle" id="programmation-agapetherapie">Agapéthérapie</h3>
+            <div class="prog-grid">
+                <article class="prog-post">
+                    <div class="prog-post-image" style="background-image: url('public/images/20200611_100434.jpg');"></div>
+                    <div class="prog-post-body">
+                        <p class="prog-post-date">Retraites 2025-2026</p>
+                        <h3 class="prog-post-title">Agapèthérapie</h3>
+                        <p class="prog-post-excerpt">Retraites pour permettre à Jésus de guérir les blessures du cœur et retrouver la joie d'être aimé. Un accompagnateur vous guide sur ce chemin de liberté ; les sessions se déroulent sur plusieurs jours en résidentiel. Voir les dates et places disponibles ci-dessous.</p>
+                        <a href="#agapetherapie" class="prog-post-link">Voir les dates et s'inscrire</a>
+                    </div>
+                </article>
+                <article class="prog-post prog-post--blank" aria-hidden="true">
+                    <div class="prog-post-image"></div>
+                    <div class="prog-post-body">
+                        <p class="prog-post-date">À venir</p>
+                        <h3 class="prog-post-title">Bientôt</h3>
+                        <p class="prog-post-excerpt">Nouvelle retraite — détails à confirmer.</p>
+                        <a href="javascript:void(0)" class="prog-post-link" tabindex="-1">En savoir plus</a>
+                    </div>
+                </article>
+                <article class="prog-post prog-post--blank" aria-hidden="true">
+                    <div class="prog-post-image"></div>
+                    <div class="prog-post-body">
+                        <p class="prog-post-date">À venir</p>
+                        <h3 class="prog-post-title">Bientôt</h3>
+                        <p class="prog-post-excerpt">Nouvelle retraite — détails à confirmer.</p>
+                        <a href="javascript:void(0)" class="prog-post-link" tabindex="-1">En savoir plus</a>
                     </div>
                 </article>
             </div>
@@ -611,19 +834,88 @@
                 <p class="prog-label">Inscription</p>
                 <h2 class="prog-title font-heading">Prochaines Agapèthérapies</h2>
             </div>
-            <div style="max-width: 36rem;">
-                <p style="color: #57534e; line-height: 1.7; margin: 0 0 1rem;">Retraites Agapèthérapie 2025-2026 — pour vous inscrire, cliquer sur le lien correspondant à la date choisie.</p>
-                <ul style="color: #57534e; line-height: 1.8; margin: 0; padding-left: 1.25rem;">
-                    <li>19-24 octobre 2025 — <a href="#" style="color: #900000; font-weight: 600;">Cliquer sur le lien</a></li>
-                    <li>9-14 novembre 2025 — <a href="#" style="color: #900000; font-weight: 600;">Cliquer sur le lien</a></li>
-                    <li>25-30 janvier 2026 — <a href="#" style="color: #900000; font-weight: 600;">Cliquer sur le lien</a></li>
-                    <li>15-20 mars 2026 — <a href="https://forms.gle/wFGUPunZXxL1V5GP8" target="_blank" rel="noopener" style="color: #900000; font-weight: 600;">Cliquer sur le lien</a></li>
-                    <li>26 avril – 1er mai 2026 — <a href="https://forms.gle/e7j2h4bz8nV2m82b9" target="_blank" rel="noopener" style="color: #900000; font-weight: 600;">Cliquer sur le lien</a></li>
-                    <li>14-19 juin 2026 — <span style="color: #78716c;">COMPLET</span></li>
-                    <li>12-17 juillet 2026 — <span style="color: #78716c;">COMPLET</span></li>
-                    <li>9-14 août 2026 — <a href="https://forms.gle/WgaKpNUTYZVbTJqK7" target="_blank" rel="noopener" style="color: #900000; font-weight: 600;">Cliquer sur le lien</a></li>
-                </ul>
+            <div class="agape-carousel" aria-roledescription="carousel" aria-label="Carrousel des dates d'Agapèthérapie">
+                <div class="agape-slides">
+                    <div class="agape-slide active" style="background-image: url('public/images/20200611_100434.jpg');" data-index="0">
+                        <div class="agape-slide-content">
+                            <p class="agape-slide-date">19-24 octobre 2025</p>
+                            <h3 class="agape-slide-title">Agapèthérapie</h3>
+                            <p class="agape-slide-sub">Retraite 2025-2026 — inscription bientôt disponible.</p>
+                            <span class="agape-cta agape-cta--disabled" aria-disabled="true">Bientôt</span>
+                        </div>
+                    </div>
+                    <div class="agape-slide" style="background-image: url('public/images/991A9293.jpg');" data-index="1">
+                        <div class="agape-slide-content">
+                            <p class="agape-slide-date">9-14 novembre 2025</p>
+                            <h3 class="agape-slide-title">Agapèthérapie</h3>
+                            <p class="agape-slide-sub">Retraite 2025-2026 — inscription bientôt disponible.</p>
+                            <span class="agape-cta agape-cta--disabled" aria-disabled="true">Bientôt</span>
+                        </div>
+                    </div>
+                    <div class="agape-slide" style="background-image: url('public/images/dji_fly_20221002_163024_239_1664742705784_photo_optimized.jpg');" data-index="2">
+                        <div class="agape-slide-content">
+                            <p class="agape-slide-date">25-30 janvier 2026</p>
+                            <h3 class="agape-slide-title">Agapèthérapie</h3>
+                            <p class="agape-slide-sub">Retraite 2025-2026 — inscription bientôt disponible.</p>
+                            <span class="agape-cta agape-cta--disabled" aria-disabled="true">Bientôt</span>
+                        </div>
+                    </div>
+                    <div class="agape-slide" style="background-image: url('public/images/CA%20CM%20decembre%202025.jpg');" data-index="3">
+                        <div class="agape-slide-content">
+                            <p class="agape-slide-date">15-20 mars 2026</p>
+                            <h3 class="agape-slide-title">Agapèthérapie</h3>
+                            <p class="agape-slide-sub">Retraite 2025-2026 — places disponibles.</p>
+                            <a class="agape-cta" href="https://forms.gle/wFGUPunZXxL1V5GP8" target="_blank" rel="noopener">S'inscrire</a>
+                        </div>
+                    </div>
+                    <div class="agape-slide" style="background-image: url('public/images/collaborateur.jpg');" data-index="4">
+                        <div class="agape-slide-content">
+                            <p class="agape-slide-date">26 avril – 1er mai 2026</p>
+                            <h3 class="agape-slide-title">Agapèthérapie</h3>
+                            <p class="agape-slide-sub">Retraite 2025-2026 — places disponibles.</p>
+                            <a class="agape-cta" href="https://forms.gle/e7j2h4bz8nV2m82b9" target="_blank" rel="noopener">S'inscrire</a>
+                        </div>
+                    </div>
+                    <div class="agape-slide" style="background-image: url('public/images/IMG_2453.JPG');" data-index="5">
+                        <div class="agape-slide-content">
+                            <p class="agape-slide-date">14-19 juin 2026</p>
+                            <h3 class="agape-slide-title">Agapèthérapie</h3>
+                            <p class="agape-slide-sub">Retraite 2025-2026 — complet.</p>
+                            <span class="agape-cta agape-cta--disabled" aria-disabled="true">Complet</span>
+                        </div>
+                    </div>
+                    <div class="agape-slide" style="background-image: url('public/images/intention%20de%20pri%C3%A8re.jpg');" data-index="6">
+                        <div class="agape-slide-content">
+                            <p class="agape-slide-date">12-17 juillet 2026</p>
+                            <h3 class="agape-slide-title">Agapèthérapie</h3>
+                            <p class="agape-slide-sub">Retraite 2025-2026 — complet.</p>
+                            <span class="agape-cta agape-cta--disabled" aria-disabled="true">Complet</span>
+                        </div>
+                    </div>
+                    <div class="agape-slide" style="background-image: url('public/images/dji_fly_20221002_162126_216_1664742101584_photo_optimized-768x432.jpg');" data-index="7">
+                        <div class="agape-slide-content">
+                            <p class="agape-slide-date">9-14 août 2026</p>
+                            <h3 class="agape-slide-title">Agapèthérapie</h3>
+                            <p class="agape-slide-sub">Retraite 2025-2026 — places disponibles.</p>
+                            <a class="agape-cta" href="https://forms.gle/WgaKpNUTYZVbTJqK7" target="_blank" rel="noopener">S'inscrire</a>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="button" class="agape-nav prev" aria-label="Image précédente">‹</button>
+                <button type="button" class="agape-nav next" aria-label="Image suivante">›</button>
+                <div class="agape-dots" role="tablist" aria-label="Navigation du carrousel">
+                    <button type="button" class="agape-dot active" aria-label="Slide 1" aria-selected="true" data-index="0"></button>
+                    <button type="button" class="agape-dot" aria-label="Slide 2" aria-selected="false" data-index="1"></button>
+                    <button type="button" class="agape-dot" aria-label="Slide 3" aria-selected="false" data-index="2"></button>
+                    <button type="button" class="agape-dot" aria-label="Slide 4" aria-selected="false" data-index="3"></button>
+                    <button type="button" class="agape-dot" aria-label="Slide 5" aria-selected="false" data-index="4"></button>
+                    <button type="button" class="agape-dot" aria-label="Slide 6" aria-selected="false" data-index="5"></button>
+                    <button type="button" class="agape-dot" aria-label="Slide 7" aria-selected="false" data-index="6"></button>
+                    <button type="button" class="agape-dot" aria-label="Slide 8" aria-selected="false" data-index="7"></button>
+                </div>
             </div>
+            <p class="agape-caption">Retraites Agapèthérapie 2025-2026 — faites défiler pour voir les dates, puis cliquez sur <strong>S'inscrire</strong> lorsque le lien est disponible.</p>
         </div>
     </section>
 
@@ -631,9 +923,7 @@
         <div class="footer-inner">
             <div class="footer-top">
                 <a href="index.html" class="footer-brand">
-                    <span class="footer-brand-icon">
-                        <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L2 7v10l10 5 10-5V7L12 2zm0 2.18l6.9 3.45L12 11.09 5.1 7.63 12 4.18zM4 8.82l7 3.5v7.36l-7-3.5V8.82zm9 10.86v-7.36l7-3.5v7.36l-7 3.5z"/></svg>
-                    </span>
+                    <img src="public/images/logo.png" alt="" class="footer-brand-icon">
                     Centre de prière de la miséricorde
                 </a>
                 <ul class="footer-links">
@@ -678,6 +968,60 @@
                 });
             });
             timer = setInterval(next, 5000);
+        })();
+
+        (function() {
+            var root = document.querySelector('#agapetherapie .agape-carousel');
+            if (!root) return;
+
+            var slides = root.querySelectorAll('.agape-slide');
+            var dots = root.querySelectorAll('.agape-dot');
+            var prevBtn = root.querySelector('.agape-nav.prev');
+            var nextBtn = root.querySelector('.agape-nav.next');
+            var current = 0;
+            var n = slides.length;
+            var timer;
+
+            function goTo(i) {
+                current = (i + n) % n;
+                for (var s = 0; s < slides.length; s++) {
+                    slides[s].classList.toggle('active', s === current);
+                }
+                for (var d = 0; d < dots.length; d++) {
+                    dots[d].classList.toggle('active', d === current);
+                    dots[d].setAttribute('aria-selected', d === current);
+                }
+            }
+
+            function next() { goTo(current + 1); }
+            function prev() { goTo(current - 1); }
+            function restart() {
+                clearInterval(timer);
+                timer = setInterval(next, 6000);
+            }
+
+            if (prevBtn) {
+                prevBtn.addEventListener('click', function() {
+                    prev();
+                    restart();
+                });
+            }
+            if (nextBtn) {
+                nextBtn.addEventListener('click', function() {
+                    next();
+                    restart();
+                });
+            }
+
+            dots.forEach(function(dot) {
+                dot.addEventListener('click', function() {
+                    var idx = parseInt(dot.getAttribute('data-index') || '0', 10);
+                    goTo(idx);
+                    restart();
+                });
+            });
+
+            timer = setInterval(next, 6000);
         })();
     </script>
 </body>
