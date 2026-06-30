@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dépliant 2026-2027 — Centre de prière de la Miséricorde</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap">
+  <style>
+    :root {
+      --red: #900000;
+      --ink: #292524;
+      --muted: #57534e;
+      --stone-200: #e7e5e4;
+      --stone-50: #fafaf9;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Source Sans 3', sans-serif;
+      color: var(--ink);
+      background: #f5f5f4;
+      line-height: 1.5;
+    }
+    .heading { font-family: 'Playfair Display', serif; font-weight: 700; }
+
+    .page-nav {
+      padding: 1rem 1.5rem;
+      max-width: 90rem;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--stone-200);
+      background: #fff;
+    }
+    .page-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--ink);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .page-logo img { height: 2.25rem; width: auto; }
+    .page-links { display: flex; gap: 1.25rem; list-style: none; flex-wrap: wrap; }
+    .page-links a { color: var(--muted); font-size: 0.875rem; font-weight: 500; text-decoration: none; }
+    .page-links a:hover, .page-links a.active { color: var(--red); }
+
+    .preview-banner {
+      background: linear-gradient(90deg, #900000, #6b0000);
+      color: #fff;
+      text-align: center;
+      padding: 0.75rem 1rem;
+      font-size: 0.9rem;
+    }
+    .preview-banner strong { font-weight: 700; }
+
+    .intro {
+      max-width: 52rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 0.5rem;
+      text-align: center;
+    }
+    .intro h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      margin-bottom: 0.5rem;
+    }
+    .intro p { color: var(--muted); font-size: 0.95rem; }
+
+    .sheet-wrap {
+      max-width: 100%;
+      overflow-x: auto;
+      padding: 1rem 1rem 2rem;
+      -webkit-overflow-scrolling: touch;
+    }
+    .sheet-label {
+      text-align: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #78716c;
+      margin: 1.25rem 0 0.5rem;
+    }
+    .sheet {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(220px, 1fr));
+      min-width: min(100%, 880px);
+      max-width: 68rem;
+      margin: 0 auto 1rem;
+      background: #fff;
+      border-radius: 0.5rem;
+      overflow: hidden;
+      box-shadow: 0 8px 30px rgba(0,0,0,.1);
+      border: 1px solid var(--stone-200);
+    }
+
+    .panel {
+      position: relative;
+      min-height: 520px;
+      border-right: 1px solid var(--stone-200);
+      overflow: hidden;
+    }
+    .panel:last-child { border-right: none; }
+
+    .panel__bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+    .panel__overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+    }
+    .panel__inner {
+      position: relative;
+      z-index: 2;
+      padding: 1rem 0.9rem;
+      height: 100%;
+    }
+
+    .label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 0.5rem;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      color: var(--red);
+      margin: 0.75rem 0 0.5rem;
+      padding-bottom: 0.25rem;
+      border-bottom: 2px solid rgba(144,0,0,.2);
+    }
+    .section-title:first-child { margin-top: 0; }
+    p { color: var(--muted); font-size: 0.8rem; margin-bottom: 0.5rem; }
+
+    .thumb {
+      width: 100%;
+      height: 5.5rem;
+      object-fit: cover;
+      border-radius: 0.35rem;
+      margin-bottom: 0.65rem;
+      display: block;
+      box-shadow: 0 2px 8px rgba(0,0,0,.12);
+    }
+    .thumb--contain {
+      object-fit: contain;
+      background: #fff5f5;
+      padding: 0.35rem;
+    }
+
+    .card {
+      background: rgba(255,255,255,.92);
+      border: 1px solid var(--stone-200);
+      border-radius: 0.35rem;
+      padding: 0.65rem 0.75rem;
+      margin-bottom: 0.5rem;
+      box-shadow: 0 1px 4px rgba(0,0,0,.05);
+    }
+    .session h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.9rem;
+      color: var(--red);
+      margin-bottom: 0.35rem;
+    }
+    .session p { font-size: 0.78rem; margin: 0; line-height: 1.45; }
+
+    .fee-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.5rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-bottom: 0.25rem;
+    }
+    .fee-row strong { color: var(--ink); white-space: nowrap; }
+    .contact-box a { color: var(--red); font-weight: 600; text-decoration: none; }
+    .contact-box a:hover { text-decoration: underline; }
+
+    /* Cover */
+    .panel--cover .panel__inner {
+      display: flex;
+      flex-direction: column;
+      padding: 0;
+      height: 100%;
+    }
+    .cover-img {
+      width: 100%;
+      height: 11rem;
+      object-fit: cover;
+      display: block;
+    }
+    .cover-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 1rem 0.75rem;
+      background: rgba(250,250,249,.92);
+    }
+    .cover-body img { width: 3.5rem; margin-bottom: 0.5rem; }
+    .cover-years { font-size: 1.75rem; color: var(--red); font-family: 'Playfair Display', serif; font-weight: 700; }
+    .cover-title { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; margin: 0.35rem 0 0.75rem; }
+    .cover-tagline { font-family: 'Playfair Display', serif; font-style: italic; font-size: 0.85rem; color: var(--muted); margin-bottom: auto; }
+    .cover-name { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; margin-top: 0.75rem; }
+    .cover-footer { font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; color: #a8a29e; margin-top: 0.35rem; }
+
+    /* Mission */
+    .panel--mission { color: #fff; text-align: center; }
+    .panel--mission .panel__overlay {
+      background: linear-gradient(165deg, rgba(28,25,23,.88), rgba(63,43,40,.82), rgba(28,25,23,.9));
+    }
+    .panel--mission .panel__inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 520px;
+    }
+    .panel--mission .label { color: #fca5a5; }
+    .panel--mission h2 { font-size: 1.05rem; color: #fff; margin: 0.5rem 0; line-height: 1.35; }
+    .panel--mission p { color: #e7e5e4; font-size: 0.82rem; }
+    .sacred-heart { width: 7.5rem; max-width: 80%; margin-bottom: 0.5rem; filter: drop-shadow(0 4px 12px rgba(0,0,0,.35)); }
+    .mission-quote {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      color: #fecaca;
+      margin-top: 0.75rem;
+      padding-top: 0.65rem;
+      border-top: 1px solid rgba(255,255,255,.15);
+      font-size: 0.85rem;
+    }
+
+    /* Schedule */
+    .prog-header {
+      text-align: center;
+      background: rgba(255,255,255,.92);
+      border-radius: 0.35rem;
+      padding: 0.65rem;
+      margin-bottom: 0.5rem;
+      border: 1px solid var(--stone-200);
+    }
+    .prog-header .main-title { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.04em; line-height: 1.35; }
+    .prog-header .year-big { font-size: 1.75rem; color: var(--red); font-family: 'Playfair Display', serif; font-weight: 700; }
+    .schedule-wrap {
+      background: rgba(255,255,255,.9);
+      border-radius: 0.35rem;
+      padding: 0.5rem 0.65rem;
+      border: 1px solid var(--stone-200);
+    }
+    .month {
+      font-weight: 700;
+      font-size: 0.82rem;
+      margin: 0.65rem 0 0.35rem;
+      background: rgba(144,0,0,.08);
+      display: inline-block;
+      padding: 0.1rem 0.4rem;
+      border-radius: 0.2rem;
+    }
+    .month:first-child { margin-top: 0; }
+    ul.schedule { list-style: none; }
+    ul.schedule li {
+      font-size: 0.76rem;
+      color: var(--muted);
+      margin-bottom: 0.35rem;
+      padding-left: 0.75rem;
+      position: relative;
+    }
+    ul.schedule li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.45em;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--red);
+    }
+    .event-date { font-weight: 600; color: var(--ink); }
+    .event-sub { display: block; font-size: 0.68rem; color: #78716c; margin-top: 0.1rem; }
+
+    /* About */
+    .who-box {
+      background: var(--ink);
+      color: #fff;
+      text-align: center;
+      padding: 0.45rem;
+      font-weight: 700;
+      font-size: 0.85rem;
+      border-radius: 0.25rem;
+      margin-bottom: 0.5rem;
+    }
+    .services-list { list-style: none; margin-top: 0.5rem; }
+    .services-list li {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      color: var(--red);
+      font-size: 0.8rem;
+      margin-bottom: 0.3rem;
+      padding-left: 1rem;
+      position: relative;
+    }
+    .services-list li::before { content: "♥"; position: absolute; left: 0; font-size: 0.65rem; font-style: normal; }
+
+    .site-footer {
+      background: #1c1917;
+      color: #e7e5e4;
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.8rem;
+    }
+    .site-footer a { color: #fff; }
+
+    @media (max-width: 900px) {
+      .sheet { grid-template-columns: repeat(2, minmax(200px, 1fr)); min-width: 0; }
+      .panel { min-height: 420px; border-bottom: 1px solid var(--stone-200); }
+    }
+    @media (max-width: 520px) {
+      .sheet { grid-template-columns: 1fr; }
+      .page-links { display: none; }
+    }
+    @media print {
+      .page-nav, .preview-banner, .intro, .sheet-label, .site-footer { display: none; }
+      .sheet { box-shadow: none; page-break-after: always; max-width: none; }
+      .sheet-wrap { overflow: visible; padding: 0; }
+      @page { size: 17in 11in landscape; margin: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="page-nav">
+    <a href="../index.html" class="page-logo">
+      <img src="images/logo.png" alt="">
+      Centre de prière de la Miséricorde
+    </a>
+    <ul class="page-links">
+      <li><a href="../index.html">Accueil</a></li>
+      <li><a href="pamphlet-2026-2027.html" class="active">Dépliant 2026-2027</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </header>
+
+  <div class="preview-banner">
+    <strong>Aperçu client</strong> — Dépliant programme 2026-2027 (recto + verso)
+  </div>
+
+  <div class="intro">
+    <h1 class="heading">Programme des activités 2026–2027</h1>
+    <p>Faites défiler horizontalement sur ordinateur pour voir les 4 sections côte à côte, comme le dépliant imprimé.</p>
+  </div>
+
+  <div class="sheet-wrap">
+    <p class="sheet-label">Recto — Extérieur</p>
+    <div class="sheet">
+
+      <div class="panel">
+        <img class="panel__bg" src="images/991A9293.jpg" alt="">
+        <div class="panel__overlay" style="background:linear-gradient(180deg,rgba(255,248,245,.88),rgba(250,250,249,.92))"></div>
+        <div class="panel__inner">
+          <img class="thumb" src="images/IMG_2453.JPG" alt="Adoration">
+          <p class="label">Nos sessions</p>
+          <div class="card session">
+            <h3>Agapèthérapie</h3>
+            <p>Pour goûter la joie d'être aimé : chaque personne est unique et aimée. L'agapèthérapie permet à Jésus de guérir ce qui nous empêche d'avancer.</p>
+          </div>
+          <div class="card session">
+            <h3>Tout est recréé par l'Amour de Dieu</h3>
+            <p>Session pour les personnes ayant vécu des abus sexuels dans l'enfance — libération de la honte et retrouver sa dignité d'enfant de Dieu.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <img class="panel__bg" src="images/20200611_100434.jpg" alt="">
+        <div class="panel__overlay" style="background:linear-gradient(160deg,rgba(255,255,255,.88),rgba(250,250,249,.93))"></div>
+        <div class="panel__inner">
+          <img class="thumb thumb--contain" src="images/Sacre' Coeur de JE'sus.png" alt="Sacré-Cœur">
+          <p class="label">Nos sessions</p>
+          <div class="card session">
+            <h3>Serments intérieurs</h3>
+            <p>À la lumière de l'Esprit Saint, découvre ce qui a brimé ta liberté et qui continue d'avoir des effets négatifs dans ta vie.</p>
+          </div>
+          <div class="card session">
+            <h3>Découvrir l'Amour du Père</h3>
+            <p>Faire tomber les fausses images sur Dieu le Père afin d'expérimenter son Amour.</p>
+          </div>
+          <div class="card session">
+            <h3>Séminaires de la Vie dans l'Esprit</h3>
+            <p>Découvrir et vivre la présence de l'Esprit Saint et grandir dans la vie chrétienne.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <img class="panel__bg" src="images/dji_fly_20221002_162126_216_1664742101584_photo_optimized-768x432.jpg" alt="">
+        <div class="panel__overlay" style="background:linear-gradient(180deg,rgba(255,255,255,.91),rgba(250,250,249,.88))"></div>
+        <div class="panel__inner">
+          <img class="thumb" src="images/dji_fly_20221002_162126_216_1664742101584_photo_optimized-768x432.jpg" alt="Vue aérienne du Centre">
+          <p class="label">Informations pratiques</p>
+          <div class="card">
+            <h2 class="section-title">Frais de séjour</h2>
+            <div class="fee-row"><span>Journée 9h–17h (avec dîner)</span><strong>40 $</strong></div>
+            <div class="fee-row"><span>Journée (sans repas)</span><strong>25 $</strong></div>
+            <div class="fee-row"><span>Séminaire Vie dans l'Esprit</span></div>
+            <div class="fee-row"><span>Interne / Externe</span><strong>145 $ / 95 $</strong></div>
+            <div class="fee-row"><span>Fin de semaine ressourcement</span></div>
+            <div class="fee-row"><span>Interne / Externe</span><strong>225 $ / 175 $</strong></div>
+            <div class="fee-row"><span>Session (jeu. soir – dim. midi)</span><strong>325 $</strong></div>
+            <div class="fee-row"><span>Semaine de silence</span><strong>450 $</strong></div>
+            <div class="fee-row"><span>Session pour couple</span><strong>375 $</strong></div>
+            <div class="fee-row"><span>Agapèthérapie (dim.–ven.)</span><strong>495 $</strong></div>
+            <p style="font-size:0.72rem;margin-top:0.25rem">Arrivée à 16h00, souper inclus.</p>
+          </div>
+          <div class="card">
+            <h2 class="section-title">Inscription</h2>
+            <p>En ligne, par courriel ou téléphone. Dépôt de <strong>50 $</strong> non remboursable.</p>
+          </div>
+          <div class="card contact-box">
+            <h2 class="section-title">Nous joindre</h2>
+            <p><strong>1526, 19<sup>e</sup> Rue</strong><br>Saint-Côme-de-Linière (QC) G0M 1J0</p>
+            <p><a href="tel:+14186853181">(418) 685-3181</a><br>
+            <a href="mailto:centremisericorde@hotmail.com">centremisericorde@hotmail.com</a><br>
+            <a href="https://www.centremisericorde.org">www.centremisericorde.org</a></p>
+            <h2 class="section-title">Trajet</h2>
+            <p style="margin:0">Autoroute 73 Sud — sortie St-Côme-de-Linière, 19<sup>e</sup> Rue.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel panel--cover">
+        <img class="panel__bg" src="../centre1.jpg" alt="">
+        <div class="panel__overlay" style="background:linear-gradient(180deg,rgba(28,25,23,.1),rgba(250,250,249,.2) 50%,rgba(250,250,249,.95) 75%)"></div>
+        <div class="panel__inner">
+          <img class="cover-img" src="../centre1.jpg" alt="Centre de prière de la Miséricorde">
+          <div class="cover-body">
+            <img src="images/logo.png" alt="Logo">
+            <p class="cover-years heading">2026 – 2027</p>
+            <h1 class="cover-title heading">Programme des activités</h1>
+            <p class="cover-tagline">Viens à l'écart, là où il fait bon se ressourcer!</p>
+            <p class="cover-name">Centre de prière de la Miséricorde</p>
+            <p class="cover-footer">Formation • Enseignement • Prière</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="sheet-label">Verso — Intérieur</p>
+    <div class="sheet">
+
+      <div class="panel">
+        <img class="panel__bg" src="images/IMG_2453.JPG" alt="">
+        <div class="panel__overlay" style="background:linear-gradient(180deg,rgba(255,255,255,.9),rgba(250,250,249,.86))"></div>
+        <div class="panel__inner">
+          <div class="prog-header">
+            <p class="main-title heading">Programme des activités<br>Centre de prière de la Miséricorde</p>
+            <p class="year-big heading">2026</p>
+          </div>
+          <div class="schedule-wrap">
+            <p class="month">Août</p>
+            <ul class="schedule">
+              <li><span class="event-date">9–15</span> Agapèthérapie</li>
+              <li><span class="event-date">27–30</span> Tout est recréé par l'Amour de Dieu<span class="event-sub">Guérison des conséquences des abus sexuels</span></li>
+            </ul>
+            <p class="month">Septembre</p>
+            <ul class="schedule">
+              <li><span class="event-date">5</span> Journée collaborateurs</li>
+              <li><span class="event-date">12</span> Mission Puits de Jacob<span class="event-sub">St-Jérôme</span></li>
+              <li><span class="event-date">17–21</span> Tout est recréé — Obéjuan</li>
+              <li><span class="event-date">25–29</span> Pèlerinage Lourdes / Medjugorje</li>
+            </ul>
+            <p class="month">Octobre</p>
+            <ul class="schedule">
+              <li><span class="event-date">11–16</span> Agapèthérapie</li>
+              <li><span class="event-date">30 – 1<sup>er</sup> nov.</span> Séminaires Vie dans l'Esprit</li>
+            </ul>
+            <p class="month">Novembre</p>
+            <ul class="schedule">
+              <li><span class="event-date">7</span> Mission Sherbrooke</li>
+              <li><span class="event-date">15–20</span> Agapèthérapie</li>
+              <li><span class="event-date">27–29</span> Découvrir l'Amour du Père</li>
+            </ul>
+            <p class="month">Décembre</p>
+            <ul class="schedule">
+              <li><span class="event-date">5</span> Journée préparation Noël</li>
+              <li><span class="event-date">31</span> Messe du Nouvel An<span class="event-sub">Lieu à déterminer</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel panel--mission">
+        <img class="panel__bg" src="images/991A9293.jpg" alt="">
+        <div class="panel__overlay"></div>
+        <div class="panel__inner">
+          <img class="sacred-heart" src="images/Sacre' Coeur de JE'sus.png" alt="Sacré-Cœur de Jésus">
+          <p class="label">Notre mission</p>
+          <h2 class="heading">Faire connaître et aimer le Sacré-Cœur de Jésus</h2>
+          <p>c'est notre mission ultime et notre joie de vivre!</p>
+          <p class="mission-quote">« Chaque personne est unique et aimée. »</p>
+          <img src="images/logo.png" alt="" style="width:2.5rem;margin-top:0.75rem;opacity:.9">
+        </div>
+      </div>
+
+      <div class="panel">
+        <img class="panel__bg" src="images/20200611_100434.jpg" alt="">
+        <div class="panel__overlay" style="background:linear-gradient(200deg,rgba(255,255,255,.91),rgba(250,250,249,.87))"></div>
+        <div class="panel__inner">
+          <div class="prog-header">
+            <p class="main-title heading">Programme des activités<br>Centre de prière de la Miséricorde</p>
+            <p class="year-big heading">2027</p>
+          </div>
+          <div class="schedule-wrap">
+            <p class="month">Janvier</p>
+            <ul class="schedule">
+              <li><span class="event-date">8–10</span> Fin de semaine collaborateurs</li>
+              <li><span class="event-date">17–22</span> Agapèthérapie</li>
+            </ul>
+            <p class="month">Février</p>
+            <ul class="schedule">
+              <li><span class="event-date">5–7</span> Retraite de couple</li>
+              <li><span class="event-date">13–20</span> Vacances du Centre</li>
+              <li><span class="event-date">25–28</span> Tout est recréé par l'Amour de Dieu</li>
+            </ul>
+            <p class="month">Mars – Avril</p>
+            <ul class="schedule">
+              <li><span class="event-date">14–19 mars</span> Agapèthérapie</li>
+              <li><span class="event-date">9–11 avr.</span> Serments intérieurs</li>
+              <li><span class="event-date">17 avr.</span> Journée de ressourcement</li>
+              <li><span class="event-date">25–30 avr.</span> Agapèthérapie</li>
+            </ul>
+            <p class="month">Mai – Août</p>
+            <ul class="schedule">
+              <li><span class="event-date">30 mai – 2 juin</span> Préparation Pentecôte</li>
+              <li><span class="event-date">4–6 juin</span> École du Cœur de Jésus</li>
+              <li><span class="event-date">13–18 juin</span> Agapèthérapie</li>
+              <li><span class="event-date">4–9 juil.</span> Semaine de silence</li>
+              <li><span class="event-date">19–24 juil.</span> Agapèthérapie</li>
+              <li><span class="event-date">16–20 août</span> Agapèthérapie</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <img class="panel__bg" src="../centre1.jpg" alt="">
+        <div class="panel__overlay" style="background:linear-gradient(180deg,rgba(255,255,255,.93) 0%,rgba(255,255,255,.88) 60%,rgba(250,250,249,.82) 100%)"></div>
+        <div class="panel__inner">
+          <div class="who-box">Qui sommes-nous?</div>
+          <img class="thumb" src="images/dji_fly_20221002_162126_216_1664742101584_photo_optimized-768x432.jpg" alt="Vue du Centre">
+          <div class="card">
+            <p>Le Centre de prière de la Miséricorde œuvre pour faire connaître l'amour miséricordieux du Sacré-Cœur de Jésus.</p>
+            <p>À St-Côme-Linière, nous offrons des retraites d'Agapèthérapie, des séminaires de la Vie dans l'Esprit, un ministère d'écoute et des soirées de prière.</p>
+          </div>
+          <ul class="services-list">
+            <li>Célébrations des sacrements</li>
+            <li>Enseignements</li>
+            <li>Chants et louanges</li>
+            <li>Ministères de prière et de libération</li>
+            <li>Accompagnement</li>
+          </ul>
+          <img class="thumb" src="images/collaborateur.jpg" alt="Communauté" style="margin-top:0.5rem">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+  <p>Centre de prière de la Miséricorde — St-Côme-Linière (Beauce)</p>
+  <p><a href="../index.html">Retour au site</a> · <a href="contact.html">Contact</a></p>
+  </footer>
+
+</body>
+</html>
